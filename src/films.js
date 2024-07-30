@@ -18,6 +18,13 @@ function getMoviesFromDirector(array, director) {
 
 // Exercise 3: Calculate the average of the films of a given director.
 function moviesAverageOfDirector(array, director) {
+
+  const dirAr = getMoviesFromDirector(array, director);
+  
+  const total = dirAr.reduce((sum, value) => sum + value.score, 0) / dirAr.length;
+  const result = (total / dirAr.length).toFixed(2);
+
+  return result;
   
 }
 
