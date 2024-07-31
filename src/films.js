@@ -77,7 +77,33 @@ function moviesAverageByCategory(array, genre) {
 }
 
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {
+function hoursToMinutes(array) {
+
+  const result = array.map(item => {return {...item}});
+
+  result.forEach(movie => {
+    const bothThings = movie.duration.replace(" ", "").split("h");
+    const hours = Number(bothThings[0]);
+    const minutes = Number(bothThings[1].slice(0, -3));
+
+    movie.duration = hours * 60 + minutes;
+  });
+
+  /* const result = array.map((x) => {
+    const newObj = x;
+
+    const bothThings = newObj.duration.replace(" ", "").split("h");
+    const hours = Number(bothThings[0]);
+    const minutes = Number(bothThings[1].slice(0, -3));
+
+    newObj.duration = hours * 60 + minutes;
+
+    return newObj;
+  }); */
+
+  console.log(result);
+
+  return result;
 
 }
 
