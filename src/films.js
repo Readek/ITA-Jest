@@ -21,8 +21,8 @@ function moviesAverageOfDirector(array, director) {
 
   const dirAr = getMoviesFromDirector(array, director);
   
-  const total = dirAr.reduce((sum, value) => sum + value.score, 0) / dirAr.length;
-  const result = (total / dirAr.length).toFixed(2);
+  const total = dirAr.reduce((sum, value) => sum + value.score, 0);
+  const result = Number((total / dirAr.length).toFixed(2));
 
   return result;
   
@@ -30,6 +30,12 @@ function moviesAverageOfDirector(array, director) {
 
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
+
+  const result = array.map(({title}) => (title)) // array of only titles
+    .sort() // order alphabetically
+    .splice(0, 20); // only top 20
+
+  return result;
   
 }
 
